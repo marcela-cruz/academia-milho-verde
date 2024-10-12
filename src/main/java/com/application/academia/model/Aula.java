@@ -1,0 +1,16 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.application.academia.model;
+
+/**
+ *
+ * @author marce
+ */
+public class Aula {
+    
+    private String tipo; // spinning, musculação, fit dance e pilates
+    private String sala; // spinning, musculação, fit dance e pilates
+    private double valor;
+}

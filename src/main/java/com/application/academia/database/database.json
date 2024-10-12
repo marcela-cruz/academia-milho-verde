@@ -1,0 +1,61 @@
+[{
+        "id": "2350434674",
+        "nome": "Marcos",
+        "endereco": {
+            "rua": "Rua A",
+            "numero": "1",
+            "bairro": "Centro",
+            "cidade": "Diamantina"
+        },
+        "telefone": "78533614875",
+        "email": "marcos@example.com",
+        "cpf": "15987532460"
+    }, {
+        "id": "2350439974",
+        "nome": "Vinícius",
+        "endereco": {
+            "rua": "Rua B",
+            "numero": "2",
+            "bairro": "Centro",
+            "cidade": "Diamantina"
+        },
+        "telefone": "38999550717",
+        "email": "vini@example.com",
+        "cpf": "15948326710"
+    }, {
+        "id": "8466317465",
+        "nome": "Santos",
+        "endereco": {
+            "rua": "Rua C",
+            "numero": "3",
+            "bairro": "Centro",
+            "cidade": "Diamantina"
+        },
+        "telefone": "45877513495",
+        "email": "santos@example.com",
+        "cpf": "36515854752"
+    }, {
+        "id": "6026791141",
+        "nome": "Cruz",
+        "endereco": {
+            "rua": "Rua D",
+            "numero": "4",
+            "bairro": "Centro",
+            "cidade": "Diamantina"
+        },
+        "telefone": "45833165785",
+        "email": "cruz@example.com",
+        "cpf": "15647836254"
+    }, {
+        "id": "1821029546",
+        "nome": "Marcela",
+        "endereco": {
+            "rua": "Rua E",
+            "numero": "5",
+            "bairro": "Centro",
+            "cidade": "Diamantina"
+        },
+        "telefone": "15488756148",
+        "email": "marcela@example.com",
+        "cpf": "15248765423"
+    }]
