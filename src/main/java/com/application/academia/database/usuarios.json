@@ -1,0 +1,13 @@
+[{
+        "id": "3524153864",
+        "nome": "Admin",
+        "login": "admin",
+        "senha": "admin123",
+        "tipo": "ADMINISTRADOR"
+    }, {
+        "id": "0158360048",
+        "nome": "Admin2",
+        "login": "admin2",
+        "senha": "admin321",
+        "tipo": "ADMINISTRADOR"
+    }]
