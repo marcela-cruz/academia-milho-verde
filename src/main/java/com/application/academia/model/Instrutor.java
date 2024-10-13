@@ -12,23 +12,23 @@ import com.application.academia.controller.GeradorId;
  */
 public class Instrutor {
     
-    private String nome;
+    private String nomeCompleto;
     private String id;
 
     public Instrutor() {
     }
 
-    public Instrutor(String nome) {
-        this.nome = nome;
+    public Instrutor(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
         this.id = GeradorId.gerarId();
     }
 
-    public String getNome() {
-        return nome;
+    public String getnomeCompleto() {
+        return nomeCompleto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setnomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
     }
 
     public String getId() {
@@ -42,6 +42,6 @@ public class Instrutor {
      */
     @Override
     public String toString() {
-        return "Instrutor{" + "nome=" + nome + ", id=" + id + '}';
+        return "Instrutor{" + "nomeCompleto=" + nomeCompleto + ", id=" + id + '}';
     }
 }
