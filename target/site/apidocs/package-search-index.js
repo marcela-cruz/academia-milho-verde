@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.application.academia"},{"l":"com.application.academia.controller"},{"l":"com.application.academia.dao"},{"l":"com.application.academia.model"},{"l":"com.application.academia.service"}];updateSearchResults();
