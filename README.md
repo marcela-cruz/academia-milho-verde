@@ -12,4 +12,4 @@ Quando me aposentar, quero abrir uma academia em Milho Verde. A academia terá 4
 
 ### Tecnologias
 
-Desenvolvido como projeto final da disciplina de Programação Orientada a Objetos, este sistema utiliza **Java** como linguagem principal e **JSON** para a troca de dados. O objetivo era criar uma solução completa para gerenciar as operações diárias de uma academia, desde o cadastro de alunos até a gestão financeira.
+Desenvolvido como projeto final da disciplina de Programação Orientada a Objetos, este sistema utiliza **Java** como linguagem principal e **JSON** para a troca de dados.
