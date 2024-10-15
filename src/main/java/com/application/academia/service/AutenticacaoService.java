@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class AutenticacaoService {
 
-    private static final String ARQUIVO_JSON = "src/main/java/com/application/academia/database/usuarios.json";
+    private static final String JSON_USUARIOS = "src/main/java/com/application/academia/database/usuarios.json";
     private List<Usuario> usuarios;
     private JsonManager<Usuario> jsonManager;    
     
@@ -28,7 +28,7 @@ public class AutenticacaoService {
     
     private List<Usuario> carregarUsuarios() {
         Type usuarioListType = new TypeToken<ArrayList<Usuario>>() {}.getType();
-        List<Usuario> listaUsuarios = jsonManager.lerLista(ARQUIVO_JSON, usuarioListType);
+        List<Usuario> listaUsuarios = jsonManager.lerLista(JSON_USUARIOS, usuarioListType);
         
         if (listaUsuarios == null) {
             listaUsuarios = new ArrayList<>();
@@ -53,6 +53,6 @@ public class AutenticacaoService {
     }
 
     private void salvarUsuariosNoArquivo() {
-        jsonManager.salvarLista(ARQUIVO_JSON, usuarios);
+        jsonManager.salvarLista(JSON_USUARIOS, usuarios);
     }
 }
