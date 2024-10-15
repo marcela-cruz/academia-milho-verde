@@ -7,7 +7,8 @@ package com.application.academia.model;
 import com.application.academia.controller.GeradorId;
 
 /**
- *
+ * Esta classe representa um usuário do sistema.
+ * 
  * @author marce
  */
 public class Usuario {
@@ -22,9 +23,21 @@ public class Usuario {
     private String senha;
     private TipoUsuario tipo;
 
+    /**
+     * Construtor sem argumentos.
+     * Inicializa o usuário com valores padrão (se houver).
+     */
     public Usuario() {
     }
 
+    /**
+     * Construtor completo para o usuário.
+     *
+     * @param nome Nome do usuário.
+     * @param login Login do usuário.
+     * @param senha Senha do usuário.
+     * @param tipo Tipo de usuário (Administrador ou Funcionário).
+     */
     public Usuario(String nome, String login, String senha, TipoUsuario tipo) {
         this.id = GeradorId.gerarId();
         this.nome = nome;
@@ -69,11 +82,33 @@ public class Usuario {
         this.tipo = tipo;
     }
     
+    /**
+     * Verifica se o usuário fornecido corresponde ao login e senha armazenados.
+     *
+     * @param login Login do usuário a ser autenticado.
+     * @param senha Senha do usuário a ser autenticado.
+     * @return true se o login e senha correspondem, false caso contrário.
+     */
     public boolean autenticar(String login, String senha) {
         return this.login.equals(login) && this.senha.equals(senha);
     }
     
+    /**
+     * Verifica se o usuário possui o tipo de ADMINISTRADOR.
+     *
+     * @return true se o usuário é administrador, false caso contrário.
+     */
     public boolean isAdministrador() {
         return this.tipo == TipoUsuario.ADMINISTRADOR;
+    }
+
+    /**
+     * Retorna uma representação em string do objeto Usuario.
+     *
+     * @return Uma string representando o estado do Usuario.
+     */
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + ", tipo=" + tipo + '}';
     }
 }
