@@ -24,7 +24,7 @@ public class ClienteController {
 
     private List<Cliente> clientes = new ArrayList<>();
     JsonManager<Cliente> jsonManager = new JsonManager<>();
-    String filePath = "src/main/java/com/application/academia/database/database.json";
+    String filePath = "src/main/java/com/application/academia/database/clientes.json";
 
     /**
      * Construtor da classe ClienteController.
@@ -103,7 +103,7 @@ public class ClienteController {
             if (clienteParaRemover.isPresent()) {
                 clientes.remove(clienteParaRemover.get());
                 jsonManager.salvarLista(filePath, clientes);
-                System.out.println("model.Cliente '" + nome + "' foi excluído com sucesso\n");
+                System.out.println("model.Cliente '" + nome + "' foi excluido com sucesso\n");
             } else {
                 System.out.println("model.Cliente com o nome '" + nome + "' não encontrado\n");
             }
