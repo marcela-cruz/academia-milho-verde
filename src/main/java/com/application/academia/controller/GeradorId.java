@@ -7,14 +7,17 @@ package com.application.academia.controller;
 import java.util.UUID;
 
 /**
+ * Esta classe é responsável por gerar IDs únicos.
  *
  * @author marce
  */
 public class GeradorId {
 
     /**
+     * Gera um ID aleatório extraindo um número específico de dígitos
+     * de um UUID (Identificador Único Universal) gerado aleatoriamente.
      *
-     * @return
+     * @return Uma string contendo os dígitos extraídos do UUID.
      */
     public static String gerarId(){
         String uuid = UUID.randomUUID().toString();
@@ -33,5 +36,15 @@ public class GeradorId {
         }
 
         return numerous.toString();
+    }
+
+    /**
+     * Retorna uma representação em string do objeto GeradorId.
+     *
+     * @return Uma string representando o estado do GeradorId.
+     */
+    @Override
+    public String toString() {
+        return "GeradorId{" + '}';
     }
 }
