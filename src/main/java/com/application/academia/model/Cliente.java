@@ -7,6 +7,7 @@ package com.application.academia.model;
 import com.application.academia.controller.GeradorId;
 
 /**
+ * Esta classe representa um cliente da academia.
  *
  * @author marce
  */
@@ -19,10 +20,23 @@ public class Cliente {
     private String email;
     private String cpf;
 
+    /**
+     * Construtor sem argumentos.
+     * Inicializa o cliente com valores padrão (se houver).
+     */
     public Cliente() {
 
     }
 
+    /**
+     * Construtor completo para o cliente.
+     *
+     * @param nome Nome do cliente.
+     * @param endereco Endereço do cliente.
+     * @param telefone Telefone do cliente.
+     * @param email Email do cliente.
+     * @param cpf CPF do cliente.
+     */
     public Cliente(String nome, Endereco endereco, String telefone, String email, String cpf) {
         this.id = GeradorId.gerarId();
         this.nome = nome;
