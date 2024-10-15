@@ -8,14 +8,6 @@ package com.application.academia.model;
  *
  * @author marce
  */
-public class Gerente extends Funcionario {
-
-    public Gerente() {
-    }
-
-    public Gerente(String nomeCompleto, String senha, String nivelDeAcesso) {
-        super(nomeCompleto, senha, nivelDeAcesso);
-    }
-    
+public class Gerente {
     
 }
