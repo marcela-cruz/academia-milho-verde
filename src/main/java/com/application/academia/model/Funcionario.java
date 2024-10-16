@@ -8,7 +8,8 @@ package com.application.academia.model;
  *
  * @author marce
  */
-public class Funcionario {
+public class Funcionario extends Usuario {    
     
+    private String nome;
     
 }
