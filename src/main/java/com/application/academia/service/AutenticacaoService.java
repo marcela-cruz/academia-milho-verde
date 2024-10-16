@@ -19,25 +19,26 @@ public class AutenticacaoService {
 
     private static final String JSON_USUARIOS = "src/main/java/com/application/academia/database/usuarios.json";
     private List<Usuario> usuarios;
-    private JsonManager<Usuario> jsonManager;    
-    
+    private JsonManager<Usuario> jsonManager;
+
     public AutenticacaoService() {
         jsonManager = new JsonManager<>();
         usuarios = carregarUsuarios();
     }
-    
+
     private List<Usuario> carregarUsuarios() {
-        Type usuarioListType = new TypeToken<ArrayList<Usuario>>() {}.getType();
+        Type usuarioListType = new TypeToken<ArrayList<Usuario>>() {
+        }.getType();
         List<Usuario> listaUsuarios = jsonManager.lerLista(JSON_USUARIOS, usuarioListType);
-        
+
         if (listaUsuarios == null) {
             listaUsuarios = new ArrayList<>();
             System.out.println("Nenhum usuário encontrado. Criando lista vazia.");
         }
-        
+
         return listaUsuarios;
     }
-    
+
     public Usuario login(String login, String senha) {
         for (Usuario usuario : usuarios) {
             if (usuario.autenticar(login, senha)) {
@@ -46,10 +47,14 @@ public class AutenticacaoService {
         }
         return null;
     }
-    
+
     public void cadastrarUsuario(Usuario novoUsuario) {
         usuarios.add(novoUsuario);
         salvarUsuariosNoArquivo();
+    }
+
+    public void removerUsuario(String login) {
+
     }
 
     private void salvarUsuariosNoArquivo() {
