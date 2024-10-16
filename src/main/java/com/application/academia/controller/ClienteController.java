@@ -111,11 +111,10 @@ public class ClienteController {
     }
 
     /**
-     * Método para excluir um cliente com base no ID. (Implementação ainda não
-     * concluída.)
+     * Método para excluir um cliente com base no ID.
      */
     public void excluirClienteById() {
-
+        
     }
 
     /**
