@@ -46,4 +46,5 @@
             <version>2.10</version>
         </dependency>
     </dependencies>
+    <description>Gym management system, developed in Java, designed to manage scheduling, payments, access control and financial reports. Ideal for small gyms focused on tourism, offering features such as customer registration, plan management (daily and monthly fees) and access control via turnstile.</description>
 </project>
