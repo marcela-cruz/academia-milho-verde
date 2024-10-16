@@ -18,7 +18,6 @@ public class Usuario {
     }
     
     private String id;
-    private String nome;
     private String login;
     private String senha;
     private TipoUsuario tipo;
@@ -32,15 +31,13 @@ public class Usuario {
 
     /**
      * Construtor completo para o usuário.
-     *
-     * @param nome Nome do usuário.
+     * 
      * @param login Login do usuário.
      * @param senha Senha do usuário.
      * @param tipo Tipo de usuário (Administrador ou Funcionário).
      */
-    public Usuario(String nome, String login, String senha, TipoUsuario tipo) {
+    public Usuario(String login, String senha, TipoUsuario tipo) {
         this.id = GeradorId.gerarId();
-        this.nome = nome;
         this.login = login;
         this.senha = senha;
         this.tipo = tipo;
@@ -48,14 +45,6 @@ public class Usuario {
     
     public String getId() {
         return id;
-    }
-    
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getLogin() {
@@ -109,6 +98,6 @@ public class Usuario {
      */
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", login=" + login + ", senha=" + senha + ", tipo=" + tipo + '}';
+        return "Usuario{" + "id=" + id + ", login=" + login + ", senha=" + senha + ", tipo=" + tipo + '}';
     }
 }
