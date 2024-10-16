@@ -1,14 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.test.academia;
-
 
 import com.application.academia.model.Usuario;
 import com.application.academia.service.AutenticacaoService;
 import java.util.Scanner;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 /**
  *
  * @author marce
@@ -39,7 +38,7 @@ public class MainTeste {
 
                     Usuario usuarioLogado = autenticacaoService.login(login, senha);
                     if (usuarioLogado != null) {
-                        System.out.println("Login bem-sucedido! Ola, " + usuarioLogado.getNome());
+                        System.out.println("Login bem-sucedido! Ola, " + usuarioLogado.getLogin());
                         if (usuarioLogado.isAdministrador()) {
                             System.out.println("Acesso total ao sistema.");
                         } else {
@@ -52,8 +51,6 @@ public class MainTeste {
 
                 case 2:
                     System.out.println("\n=== Cadastro de Novo Usuario ===\n");
-                    System.out.print("Nome: ");
-                    String nome = scanner.nextLine();
                     System.out.print("Login: ");
                     String novoLogin = scanner.nextLine();
                     System.out.print("Senha: ");
@@ -69,7 +66,7 @@ public class MainTeste {
                     }
 
                     if (tipo != null) {
-                        Usuario novoUsuario = new Usuario(nome, novoLogin, novaSenha, tipo);
+                        Usuario novoUsuario = new Usuario(novoLogin, novaSenha, tipo);
                         autenticacaoService.cadastrarUsuario(novoUsuario);
                         System.out.println("Novo usuario cadastrado com sucesso!");
                     } else {
