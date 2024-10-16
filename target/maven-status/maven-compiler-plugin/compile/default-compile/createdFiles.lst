@@ -17,7 +17,6 @@ com\application\academia\model\Reserva.class
 com\application\academia\model\Despesa.class
 com\application\academia\model\Cliente.class
 com\application\academia\model\Instrutor.class
-com\application\academia\model\Pessoa.class
 com\application\academia\model\Endereco.class
 com\application\academia\model\Gerente.class
 com\application\academia\controller\ClienteController.class
