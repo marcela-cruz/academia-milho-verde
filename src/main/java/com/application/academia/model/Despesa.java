@@ -13,9 +13,18 @@ public class Despesa {
     private String descricao;
     private double valor;
 
+    /**
+     * Construtor sem argumentos. Inicializa a despesa com valores padrão (se
+     * houver).
+     */
     public Despesa() {
     }
 
+    /**
+     * 
+     * @param descricao
+     * @param valor 
+     */
     public Despesa(String descricao, double valor) {
         this.descricao = descricao;
         this.valor = valor;
@@ -37,6 +46,11 @@ public class Despesa {
         this.valor = valor;
     }
 
+    /**
+     * Retorna uma representação em string do objeto Despesa.
+     *
+     * @return Uma string representando o estado do Despesa.
+     */
     @Override
     public String toString() {
         return "Despesa{" + "descricao=" + descricao + ", valor=" + valor + '}';
