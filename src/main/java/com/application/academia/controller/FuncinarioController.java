@@ -25,6 +25,17 @@ public class FuncinarioController {
     JsonManager<Funcionario> jsonManager = new JsonManager<>();
     String filePath = "src/main/java/com/application/academia/database/funcionarios.json";
 
+    /**
+     * Carrega a lista de funcionários a partir de um arquivo JSON.
+     *
+     * Este método utiliza o gerenciador de JSON para ler uma lista de objetos
+     * do tipo Funcionario a partir do caminho especificado por filePath. Se a
+     * lista for carregada com sucesso, ela é atribuída à variável de instância
+     * funcionarios. Caso contrário, uma nova lista vazia é inicializada.
+     *
+     * Se ocorrer um erro durante o carregamento, a lista de funcionários é
+     * inicializada como uma nova lista vazia.
+     */
     public void carregarFuncionarios() {
         try {
             List<Funcionario> funcionariosCarregados = jsonManager.lerLista(filePath, new TypeToken<List<Funcionario>>() {
@@ -42,6 +53,14 @@ public class FuncinarioController {
         }
     }
 
+    /**
+     * Cadastra um novo funcionário no sistema.
+     *
+     * Este método coleta informações do usuário, como nome, data de nascimento,
+     * salário, login e senha, e cria um novo objeto Funcionario. As informações
+     * são validadas antes de serem salvas. O método também trata erros que
+     * podem ocorrer durante o processo de cadastro.
+     */
     public void cadastrarFuncionario() {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Nome: ");
@@ -89,6 +108,63 @@ public class FuncinarioController {
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar funcionário: " + e.getMessage());
         }
+    }
+
+    private String obterNome(Scanner scanner) {
+        System.out.print("Nome: ");
+        return scanner.nextLine();
+    }
+
+    private String obterDataNascimento(Scanner scanner) {
+        System.out.print("Data de Nascimento (dd/MM/aaaa): ");
+        return scanner.nextLine(); // Aqui você pode adicionar validação de formato
+    }
+
+    private double obterSalario(Scanner scanner) {
+        double salario = 0;
+        boolean salarioValido = false;
+        while (!salarioValido) {
+            System.out.print("Salário: ");
+            try {
+                salario = scanner.nextDouble();
+                if (salario < 0) {
+                    throw new InputMismatchException("O salário não pode ser negativo.");
+                }
+                salarioValido = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, insira um valor numérico válido para o salário.");
+                scanner.next(); // Limpa a entrada inválida
+            }
+        }
+        scanner.nextLine(); // Consumir a nova linha pendente após nextDouble()
+        return salario;
+    }
+
+    private String obterLogin(Scanner scanner) {
+        System.out.print("Login: ");
+        return scanner.nextLine();
+    }
+
+    private String obterSenha(Scanner scanner) {
+        String senha = "";
+        int tentativas = 0;
+        final int MAX_TENTATIVAS = 3;
+
+        while (tentativas < MAX_TENTATIVAS) {
+            System.out.print("Senha: ");
+            senha = scanner.nextLine();
+            System.out.print("Confirmar senha: ");
+            String confirmacao = scanner.nextLine();
+
+            if (senha.equals(confirmacao)) {
+                return senha; // Retorna a senha se as confirmações coincidirem
+            } else {
+                tentativas++;
+                System.out.println("As senhas não coincidem. Você tem " + (MAX_TENTATIVAS - tentativas) + " tentativas restantes.");
+            }
+        }
+
+        throw new RuntimeException("Número máximo de tentativas atingido. Tente novamente mais tarde.");
     }
 
     /**
