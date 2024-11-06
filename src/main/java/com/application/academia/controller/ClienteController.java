@@ -34,15 +34,29 @@ public class ClienteController {
     }
 
     /**
-     * Carrega a lista de clientes a partir de um arquivo JSON. Se a leitura
-     * falhar, a lista de clientes é inicializada como vazia.
+     * Carrega a lista de clientes a partir de um arquivo JSON.
+     *
+     * Este método utiliza o gerenciador de JSON para ler uma lista de objetos
+     * do tipo Cliente a partir do caminho especificado por filePath. Se a
+     * lista for carregada com sucesso, ela é atribuída à variável de instância
+     * clientes. Caso contrário, uma nova lista vazia é inicializada.
+     *
+     * Se ocorrer um erro durante o carregamento, a lista de clientes é
+     * inicializada como uma nova lista vazia.
      */
     public void carregarClientes() {
-        List<Cliente> clientesCarregados = jsonManager.lerLista(filePath, new TypeToken<List<Cliente>>() {
-        }.getType());
-        if (clientesCarregados != null) {
-            clientes = clientesCarregados;
-        } else {
+        try {
+            List<Cliente> clientesCarregados = jsonManager.lerLista(filePath, new TypeToken<List<Cliente>>() {
+            }.getType());
+
+            if (clientesCarregados != null) {
+                clientes = clientesCarregados;
+                System.out.println("Funcionários carregados com sucesso. Total: " + clientes.size());
+            } else {
+                clientes = new ArrayList<>();
+                System.out.println("Nenhum funcionário encontrado. Lista inicializada vazia.");
+            }
+        } catch (Exception e) {
             clientes = new ArrayList<>();
         }
     }
@@ -114,7 +128,7 @@ public class ClienteController {
      * Método para excluir um cliente com base no ID.
      */
     public void excluirClienteById() {
-        
+
     }
 
     /**
