@@ -13,16 +13,24 @@ public class Aula {
     private String tipo; // spinning, musculação, fit dance e pilates
     private String sala;
     private double valor;
-    private Instrutor instrutor;
 
+    /**
+     * Construtor sem argumentos. Inicializa a aula com valores padrão (se
+     * houver).
+     */
     public Aula() {
     }
 
-    public Aula(String tipo, String sala, double valor, Instrutor instrutor) {
+    /**
+     * 
+     * @param tipo
+     * @param sala
+     * @param valor 
+     */
+    public Aula(String tipo, String sala, double valor) {
         this.tipo = tipo;
         this.sala = sala;
         this.valor = valor;
-        this.instrutor = instrutor;
     }
 
     public String getTipo() {
@@ -49,16 +57,13 @@ public class Aula {
         this.valor = valor;
     }
 
-    public Instrutor getInstrutor() {
-        return instrutor;
-    }
-
-    public void setInstrutor(Instrutor instrutor) {
-        this.instrutor = instrutor;
-    }
-
+    /**
+     * Retorna uma representação em string do objeto Aula.
+     *
+     * @return Uma string representando o estado do Aula.
+     */
     @Override
     public String toString() {
-        return "Aula{" + "tipo=" + tipo + ", sala=" + sala + ", valor=" + valor + ", instrutor=" + instrutor + '}';
+        return "Aula{" + "tipo=" + tipo + ", sala=" + sala + ", valor=" + valor + '}';
     }
 }
