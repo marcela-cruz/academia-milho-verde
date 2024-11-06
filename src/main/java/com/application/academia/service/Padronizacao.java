@@ -4,9 +4,13 @@
  */
 package com.application.academia.service;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 /**
  * Classe responsável pela padronização de dados, como CPF e telefone.
- * 
+ *
  * @author marce
  */
 public class Padronizacao {
@@ -15,7 +19,8 @@ public class Padronizacao {
      * Anonimiza um CPF, ocultando os três primeiros dígitos e os dois últimos.
      *
      * @param cpf O CPF a ser anonimizado. Deve conter exatamente 11 dígitos.
-     * @return O CPF anonimizado no formato "***.XXX.***-**", onde "XXX" representa os dígitos do CPF.
+     * @return O CPF anonimizado no formato "***.XXX.***-**", onde "XXX"
+     * representa os dígitos do CPF.
      * @throws IllegalArgumentException Se o CPF não tiver 11 dígitos.
      */
     public static String anonimizarCpf(String cpf) {
@@ -42,7 +47,8 @@ public class Padronizacao {
     /**
      * Formata um número de telefone no padrão "(XX) XXXXX-XXXX".
      *
-     * @param telefone O telefone a ser formatado. Deve conter exatamente 11 dígitos.
+     * @param telefone O telefone a ser formatado. Deve conter exatamente 11
+     * dígitos.
      * @return O telefone formatado no padrão "(XX) XXXXX-XXXX".
      * @throws IllegalArgumentException Se o telefone não tiver 11 dígitos.
      */
@@ -51,6 +57,24 @@ public class Padronizacao {
             throw new IllegalArgumentException("Telefone inválido");
         }
         return "(" + telefone.substring(0, 2) + ") " + telefone.substring(2, 7) + "-" + telefone.substring(7, 11);
+    }
+
+    /**
+     * 
+     * @param dataNascimentoStr
+     * @return 
+     */
+    public static int calcularIdade(String dataNascimentoStr) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataNascimento = LocalDate.parse(dataNascimentoStr, formatter);
+
+        if (dataNascimento.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("Data não pode ser no futuro");
+        }
+
+        LocalDate hoje = LocalDate.now();
+        Period periodo = Period.between(dataNascimento, hoje);
+        return periodo.getYears();
     }
 
     /**
